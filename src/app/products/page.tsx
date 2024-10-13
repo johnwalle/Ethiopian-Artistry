@@ -1,3 +1,4 @@
+// app/products/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import FilterSidebar from '@/components/products/FilterSidebar';
 import SortDropdown from '@/components/products/SortDropdown';
 
 interface Product {
-  id: string;
+  slug: string; // Changed from id to slug
   name: string;
   price: number;
   image: string;
@@ -16,10 +17,10 @@ interface Product {
 
 const ProductListingPage = () => {
   const products: Product[] = [
-    { id: '1', name: 'Ethiopian Handwoven Scarf', price: 25, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A beautiful traditional Ethiopian scarf.', category: 'Clothing' },
-    { id: '2', name: 'Traditional Coffee Pot (Jebena)', price: 50, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A handmade clay coffee pot.', category: 'Pottery' },
-    { id: '3', name: 'Handmade Jewelry', price: 80, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'Exquisite Ethiopian jewelry.', category: 'Jewelry' },
-    { id: '4', name: 'Handwoven Basket', price: 30, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A traditional basket from Ethiopia.', category: 'Home Decor' },
+    { slug: 'ethiopian-handwoven-scarf', name: 'Ethiopian Handwoven Scarf', price: 25, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A beautiful traditional Ethiopian scarf.', category: 'Clothing' },
+    { slug: 'traditional-coffee-pot', name: 'Traditional Coffee Pot (Jebena)', price: 50, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A handmade clay coffee pot.', category: 'Pottery' },
+    { slug: 'handmade-jewelry', name: 'Handmade Jewelry', price: 80, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'Exquisite Ethiopian jewelry.', category: 'Jewelry' },
+    { slug: 'handwoven-basket', name: 'Handwoven Basket', price: 30, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A traditional basket from Ethiopia.', category: 'Home Decor' },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -67,7 +68,7 @@ const ProductListingPage = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.slug} product={product} /> 
           ))}
         </div>
       </div>
