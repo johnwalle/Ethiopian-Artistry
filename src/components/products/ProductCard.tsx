@@ -1,10 +1,9 @@
-// components/ProductCard.tsx
 import React from 'react';
 import Link from 'next/link';
 
 interface ProductCardProps {
   product: {
-    slug: string; // Using slug
+    slug: string;
     name: string;
     price: number;
     image: string;
@@ -14,26 +13,32 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="border p-4 rounded-md shadow-lg hover:shadow-xl transition-shadow duration-200">
+    <div className="border border-yellow-500 bg-white p-4 rounded-md shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 transform hover:bg-amber-50">
       {/* Product Image */}
-      <img
-        src={product.image}
-        alt={`Image of ${product.name}`}
-        className="w-full h-48 object-cover rounded-md"
-      />
+      <div className="overflow-hidden rounded-md">
+        <img
+          src={product.image}
+          alt={`Image of ${product.name}`}
+          className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+        />
+      </div>
 
       {/* Product Title with Link */}
       <Link href={`/product-details/${product.slug}`}>
-        <h3 className="text-xl font-bold mt-4 cursor-pointer hover:underline">
+        <h3 className="text-2xl line-clamp-1 font-semibold mt-4 cursor-pointer hover:underline transition-colors duration-300 font-serif text-gray-800 hover:text-red-600">
           {product.name}
         </h3>
       </Link>
 
       {/* Product Description */}
-      <p className="text-gray-700 mt-2">{product.description}</p>
+      <p className="text-sm text-gray-700 mt-2 line-clamp-3 font-serif italic">
+        {product.description}
+      </p>
 
       {/* Product Price */}
-      <p className="text-lg font-semibold text-green-600 mt-4">${product.price}</p>
+      <p className="text-lg font-bold text-red-700 mt-4 font-mono tracking-wide">
+        ${product.price}
+      </p>
     </div>
   );
 };
