@@ -15,6 +15,8 @@ interface Product {
   category: string;
 }
 
+
+
 const ProductListingPage = () => {
   const products: Product[] = [
     { slug: 'ethiopian-handwoven-scarf', name: 'Ethiopian Handwoven Scarf', price: 25, image: "https://cdn.gamma.app/m3rdunp6aj4a2ph/generated-images/-pnWGG6HoRihzcI_ywwk-.jpg", description: 'A beautiful traditional Ethiopian scarf.', category: 'Clothing' },
