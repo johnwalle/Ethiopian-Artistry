@@ -32,11 +32,11 @@ const Header: React.FC = () => {
                     <Link href="/products" passHref>
                         <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Products</span>
                     </Link>
-                    <Link href="/about" passHref>
-                        <span className="text-gray-600 hover:text-gray-900 cursor-pointer">About Us</span>
+                    <Link href="/signup" passHref>
+                        <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Sign up</span>
                     </Link>
-                    <Link href="/contact" passHref>
-                        <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Contact</span>
+                    <Link href="/signin" passHref>
+                        <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Login</span>
                     </Link>
                 </nav>
 
